@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   speed: 20
-  force: 300
+  force: 600
   radius: 10
   lift: 5
 --- !u!1 &1508073460509834134

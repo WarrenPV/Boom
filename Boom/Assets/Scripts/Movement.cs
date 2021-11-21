@@ -7,6 +7,13 @@ public class Movement : MonoBehaviour
     
     public float Speed;
     public float speedAerial;
+    
+    float RBDrag = 6f;
+    float verticalMovement;
+    float horizontalMovement;
+    public float maxVelocity;
+    float sqrMaxVelocity;
+    Vector3 moveDirection;
     private Rigidbody RB;
     public GroundCheck groundCheck;
     public bool Grounded;
@@ -14,35 +21,57 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetMaxVelocity();
         RB = GetComponent<Rigidbody>();
+        RB.freezeRotation = true;
         groundCheck = GetComponentInChildren<GroundCheck>();
     }
     private void Update()
     {
+        playerInput();
+        //Drag();
         Grounded = groundCheck.Grounded;
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+        MovePlayer();
+        var v = RB.velocity;
+        if (v.sqrMagnitude > sqrMaxVelocity)
+        { 
+            RB.velocity = v.normalized * maxVelocity;
+        }
+    }
 
-        RB.rotation = Quaternion.Euler(0f, this.transform.rotation.y, 0f);
+    void playerInput()
+    {
+        horizontalMovement = Input.GetAxisRaw("Horizontal");
+        verticalMovement = Input.GetAxisRaw("Vertical");
+        moveDirection = transform.forward * verticalMovement + transform.right * horizontalMovement;
+    }
+
+    void MovePlayer()
+    {
         if (Grounded)
         {
-            float mH = Input.GetAxis("Horizontal");
-            float mV = Input.GetAxis("Vertical");
-            RB.velocity = new Vector3(mH * Speed, RB.velocity.y, mV * Speed);
-            
+            RB.AddForce(moveDirection * Speed , ForceMode.Acceleration);
         }
-        else
+        if (!Grounded)
         {
-            float mH = Input.GetAxis("Horizontal");
-            float mV = Input.GetAxis("Vertical");
-            RB.velocity = new Vector3(mH * speedAerial, RB.velocity.y, mV * speedAerial);
-          
+            RB.AddForce(moveDirection * speedAerial, ForceMode.Acceleration);
         }
         
-        
+    }
 
+    void Drag()
+    {
+        RB.drag = RBDrag;
+    }
+
+    void SetMaxVelocity()
+    {
+        
+        sqrMaxVelocity = maxVelocity * maxVelocity;
     }
 
 }
