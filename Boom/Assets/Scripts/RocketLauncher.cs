@@ -14,13 +14,21 @@ public class RocketLauncher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot) {
-            fire();
-            lastShot = Time.time;
-            canShoot = false;
-        } else {
-            if (Time.time - lastShot > fireRate) {
-                canShoot = true;
+        if (!PauseMenu.IsGamePaused)
+        {
+
+            if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
+            {
+                fire();
+                lastShot = Time.time;
+                canShoot = false;
+            }
+            else
+            {
+                if (Time.time - lastShot > fireRate)
+                {
+                    canShoot = true;
+                }
             }
         }
     }
