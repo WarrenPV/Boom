@@ -321,6 +321,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 230546721961323676, guid: 78c08d809201883468dd88e6005f323f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 230546722013712657, guid: 78c08d809201883468dd88e6005f323f, type: 3}
       propertyPath: playerRB
       value: 
@@ -344,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 230546723195361045, guid: 78c08d809201883468dd88e6005f323f, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: 4e753ef91066e0545aa39a27277f61ac, type: 2}
+      objectReference: {fileID: 13400000, guid: effd3a277b7d65c449ba98268920b9aa, type: 2}
     - target: {fileID: 230546723195361046, guid: 78c08d809201883468dd88e6005f323f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -398,16 +402,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3899625666589567516, guid: 78c08d809201883468dd88e6005f323f, type: 3}
-      propertyPath: Speed
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899625666589567516, guid: 78c08d809201883468dd88e6005f323f, type: 3}
-      propertyPath: maxVelocity
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3899625666589567516, guid: 78c08d809201883468dd88e6005f323f, type: 3}
-      propertyPath: speedAerial
-      value: 10
+      propertyPath: jumpForce
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3899625666589567516, guid: 78c08d809201883468dd88e6005f323f, type: 3}
       propertyPath: cameraRotationY
@@ -805,8 +801,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.1, z: 1}
-  m_Center: {x: 0, y: -0.97, z: 0}
+  m_Size: {x: 0.25, y: 0.1, z: 0.25}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &296802179
 GameObject:
   m_ObjectHideFlags: 0

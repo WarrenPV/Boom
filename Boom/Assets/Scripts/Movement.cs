@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private Rigidbody RB;
     public GroundCheck groundCheck;
     public bool Grounded;
+    public int jumpForce;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,10 @@ public class Movement : MonoBehaviour
         playerInput();
         //Drag();
         Grounded = groundCheck.Grounded;
+        if (Input.GetKeyDown(KeyCode.Space) && Grounded)
+        {
+            Jump();
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -61,6 +66,11 @@ public class Movement : MonoBehaviour
             RB.AddForce(moveDirection * speedAerial, ForceMode.Acceleration);
         }
         
+    }
+
+    void Jump()
+    {
+        RB.AddForce(transform.up * jumpForce *50);
     }
 
     void Drag()
