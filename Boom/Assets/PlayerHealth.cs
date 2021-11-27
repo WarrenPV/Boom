@@ -1,15 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int playerHealth;
-    public int maxPlayerHealth;
+    //written by warren
+    public float currentplayerHealth;
+    public float maxPlayerHealth;
     public bool Recover;
+    public Slider HealthBar;
+    public int recoverhealthDelay;
 
+    private void Start()
+    {
+        HealthBar.maxValue = maxPlayerHealth;
+        currentplayerHealth = maxPlayerHealth;
+    }
     public void Update()
     {
+        HealthBar.value = currentplayerHealth;
         if (Recover)
         {
             AddHealth();
@@ -17,16 +27,27 @@ public class PlayerHealth : MonoBehaviour
     }
     public void AddHealth()
     {
-        if (playerHealth > maxPlayerHealth)
+        if (currentplayerHealth < maxPlayerHealth)
         {
-            playerHealth = playerHealth + 1;
+            currentplayerHealth = currentplayerHealth + .05f;
+        }
+        else
+        {
+            Recover = false;
         }
         
     }
 
-    IEnumerator HealthDelay()
+    public void TakeDamage(int damage)
     {
-        yield return new WaitForSeconds(2);
+        currentplayerHealth = currentplayerHealth - damage;
+
+        StartCoroutine("HealthRecoverDelay");
+    }
+
+    public IEnumerator HealthRecoverDelay()
+    {
+        yield return new WaitForSeconds(recoverhealthDelay);
         Recover = true;
     }
 }

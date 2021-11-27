@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RocketLauncher : MonoBehaviour
 {
+    //written by lars
     public float fireRate = 2f;
     private bool canShoot = true;
     private float lastShot = 0f;
