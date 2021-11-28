@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BigRookGames.Weapons
-{
+//namespace BigRookGames.Weapons
+
     public class ProjectileController : MonoBehaviour
     {
         // --- Config ---
@@ -100,4 +100,3 @@ namespace BigRookGames.Weapons
 
         }
     }
-}

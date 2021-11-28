@@ -11,17 +11,23 @@ public class Rocket : MonoBehaviour
     public float force = 100f;
     public float radius = 5f;
     public float lift = 2f;
-    public GameObject explosion;
+    public GameObject explosionHitbox;
     public GameObject Renderer;
     private bool moving;
-    private AudioSource audioSource;
-    public AudioClip ExplosionAudio;
-    // Start is called before the first frame update
+
+    //stuff snagged from other rocket code
+    // --- Audio ---
+    public AudioSource inFlightAudioSource;
+    public AudioSource ExplodeSound;
+    // --- VFX ---
+    public ParticleSystem disableOnHit;
+    // --- Explosion VFX ---
+    public GameObject rocketExplosion;
+
     void Start()
     {
         moving = true;
         launchTime = Time.time;
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,7 +51,7 @@ public class Rocket : MonoBehaviour
             else
             {
                 // Blow Up
-                Explode();
+                //Explode();
             }
         }
         
@@ -60,14 +66,15 @@ public class Rocket : MonoBehaviour
                 hit.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, radius, lift);
             }
         }
+        // --- Instantiate new explosion option. I would recommend using an object pool ---
+        GameObject newExplosion = Instantiate(rocketExplosion, transform.position, rocketExplosion.transform.rotation, null);
         StartCoroutine("ExplosionDestroyMe");
-        //Destroy(gameObject);
     }
 
     IEnumerator ExplosionDestroyMe()
     {
         
-        explosion.SetActive(true);
+        explosionHitbox.SetActive(true);
         Renderer.SetActive(false);
         yield return new WaitForSeconds(.5f);
         Destroy(gameObject);

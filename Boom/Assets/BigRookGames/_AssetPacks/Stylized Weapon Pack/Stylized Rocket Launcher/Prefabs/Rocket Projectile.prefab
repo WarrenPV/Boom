@@ -232,7 +232,12 @@ MonoBehaviour:
   rocketExplosion: {fileID: 1764654978243476, guid: a98b15aa948478849b54661e4d9a317e, type: 3}
   projectileMesh: {fileID: 7375337548765109680}
   inFlightAudioSource: {fileID: 136168842684345051}
+  ExplodeSound: {fileID: 0}
   disableOnHit: {fileID: 4361980691020798282}
+  duration: 5
+  force: 2000
+  radius: 3
+  lift: 5
 --- !u!54 &91128310120046435
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -282,6 +287,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -294,6 +303,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -303,14 +316,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263658433411274, guid: 6637f6efebd5b0d4eb939586be277cd9, type: 3}

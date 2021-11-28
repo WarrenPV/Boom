@@ -808,7 +808,6 @@ GameObject:
   - component: {fileID: 230546723195361045}
   - component: {fileID: 230546723195361044}
   - component: {fileID: 3899625666589567516}
-  - component: {fileID: 5506856764670501117}
   m_Layer: 0
   m_Name: Player
   m_TagString: Movable
@@ -882,23 +881,7 @@ MonoBehaviour:
   groundCheck: {fileID: 2822412322239400871}
   Grounded: 0
   jumpForce: 15
---- !u!114 &5506856764670501117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230546723195361047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6106d5e6ec53a644bbce4b836c94c3d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentplayerHealth: 0
-  maxPlayerHealth: 10
-  Recover: 0
-  HealthBar: {fileID: 0}
-  recoverhealthDelay: 0
+  jump: {fileID: 0}
 --- !u!1 &3163860346384604694
 GameObject:
   m_ObjectHideFlags: 0
