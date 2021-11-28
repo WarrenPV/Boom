@@ -4,40 +4,74 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
+    //written by lars
     public float duration = 5f;
     public float speed = 5f;
     private float launchTime = 0f;
     public float force = 100f;
     public float radius = 5f;
     public float lift = 2f;
+    public GameObject explosion;
+    public GameObject Renderer;
+    private bool moving;
+    private AudioSource audioSource;
+    public AudioClip ExplosionAudio;
     // Start is called before the first frame update
     void Start()
     {
+        moving = true;
         launchTime = Time.time;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - launchTime < duration) {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f);
-            if (colliders.Length != 0) {
+        if (!PauseMenu.IsGamePaused)
+        {
+            if (Time.time - launchTime < duration)
+            {
+                Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f);
+                if (colliders.Length != 0)
+                {
+                    Explode();
+                }
+                if (moving)
+                {
+                    transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                }
+
+            }
+            else
+            {
+                // Blow Up
                 Explode();
-            } 
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        } else {
-            // Blow Up
-            Explode();
+            }
         }
+        
     }
 
     private void Explode() {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius); 
+        //audioSource.PlayOneShot(ExplosionAudio);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        moving = false;
         foreach (Collider hit in colliders) {
             if(hit.tag == "Movable") {
                 hit.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, radius, lift);
             }
         }
+        StartCoroutine("ExplosionDestroyMe");
+        //Destroy(gameObject);
+    }
+
+    IEnumerator ExplosionDestroyMe()
+    {
+        
+        explosion.SetActive(true);
+        Renderer.SetActive(false);
+        yield return new WaitForSeconds(.5f);
         Destroy(gameObject);
     }
+
+
 }

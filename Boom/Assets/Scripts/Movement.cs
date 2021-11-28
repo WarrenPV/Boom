@@ -18,10 +18,13 @@ public class Movement : MonoBehaviour
     public GroundCheck groundCheck;
     public bool Grounded;
     public int jumpForce;
+    private AudioSource audiosource;
+    public AudioClip jump;
 
     // Start is called before the first frame update
     void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         SetMaxVelocity();
         RB = GetComponent<Rigidbody>();
         RB.freezeRotation = true;
@@ -34,6 +37,7 @@ public class Movement : MonoBehaviour
         Grounded = groundCheck.Grounded;
         if (Input.GetKeyDown(KeyCode.Space) && Grounded)
         {
+            audiosource.PlayOneShot(jump);
             Jump();
         }
     }
