@@ -185,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 3643882369342148042, guid: f26add0b8561051438426890f3bd0f19, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 2118105985453216317, guid: 6b02eab6ff6104949bb09bc59205cbe7, type: 3}
+      objectReference: {fileID: 7825464679961926472, guid: a310fec64f6081b46b82aa40e0c544db, type: 3}
     - target: {fileID: 3826672958807468583, guid: f26add0b8561051438426890f3bd0f19, type: 3}
       propertyPath: m_RootOrder
       value: 1
