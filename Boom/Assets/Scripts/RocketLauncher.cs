@@ -10,8 +10,13 @@ public class RocketLauncher : MonoBehaviour
     private float lastShot = 0f;
     public GameObject rocket;
     public GameObject mouth;
-    
+    private AudioSource audiosource;
+    public AudioClip firingClip;
 
+    private void Start()
+    {
+        audiosource = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +25,7 @@ public class RocketLauncher : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
             {
+                
                 fire();
                 lastShot = Time.time;
                 canShoot = false;
@@ -32,9 +38,14 @@ public class RocketLauncher : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            //do nothing
+        }
     }
 
     private void fire() {
+        audiosource.PlayOneShot(firingClip);
         Quaternion shotDirection = transform.rotation;
         Instantiate(rocket, mouth.transform.position, shotDirection);
     }

@@ -41,6 +41,13 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentplayerHealth = currentplayerHealth - damage;
+        StopCoroutine("HealthRecoverDelay");
+        Recover = false;
+        if (currentplayerHealth <= 0)
+        {
+            PauseMenu.Died = true;
+            //player died so this should send you to the lose screen or send you back to the beginning
+        }
 
         StartCoroutine("HealthRecoverDelay");
     }

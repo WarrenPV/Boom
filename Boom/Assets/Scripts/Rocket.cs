@@ -25,20 +25,28 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - launchTime < duration) {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f);
-            if (colliders.Length != 0) {
-                Explode();
-            } 
-            if (moving)
+        if (!PauseMenu.IsGamePaused)
+        {
+            if (Time.time - launchTime < duration)
             {
-                transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                Collider[] colliders = Physics.OverlapSphere(transform.position, 0.1f);
+                if (colliders.Length != 0)
+                {
+                    Explode();
+                }
+                if (moving)
+                {
+                    transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                }
+
             }
-            
-        } else {
-            // Blow Up
-            Explode();
+            else
+            {
+                // Blow Up
+                Explode();
+            }
         }
+        
     }
 
     private void Explode() {
