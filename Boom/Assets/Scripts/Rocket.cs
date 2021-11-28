@@ -14,12 +14,14 @@ public class Rocket : MonoBehaviour
     public GameObject explosion;
     public GameObject Renderer;
     private bool moving;
-
+    private AudioSource audioSource;
+    public AudioClip ExplosionAudio;
     // Start is called before the first frame update
     void Start()
     {
         moving = true;
         launchTime = Time.time;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,6 +52,7 @@ public class Rocket : MonoBehaviour
     }
 
     private void Explode() {
+        //audioSource.PlayOneShot(ExplosionAudio);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         moving = false;
         foreach (Collider hit in colliders) {
@@ -63,6 +66,7 @@ public class Rocket : MonoBehaviour
 
     IEnumerator ExplosionDestroyMe()
     {
+        
         explosion.SetActive(true);
         Renderer.SetActive(false);
         yield return new WaitForSeconds(.5f);
