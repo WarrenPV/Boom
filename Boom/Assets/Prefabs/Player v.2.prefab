@@ -428,7 +428,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2902907442678396361}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -453,7 +453,7 @@ MonoBehaviour:
   maxVelocity: 10
   groundCheck: {fileID: 887520254163265913}
   Grounded: 0
-  jumpForce: 15
+  jumpForce: 25
   jump: {fileID: 8300000, guid: 4d9cb80fb87d79b4c8216c72164ce9b9, type: 3}
 --- !u!82 &3132856028533207350
 AudioSource:

@@ -14803,7 +14803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   speed: 30
-  force: 1000
+  force: 2000
   radius: 3
   lift: 5
   explosionHitbox: {fileID: 7121477193735849425}
