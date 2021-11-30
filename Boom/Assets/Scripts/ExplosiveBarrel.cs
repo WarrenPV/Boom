@@ -1,27 +1,32 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ExplosiveBarrel : MonoBehaviour
 {
-
-    GameObject PlayerHealth;
-    PlayerHealth healthScript;
 
     public float barrelDamage;
     public float breakForce;
 
     public GameObject Barrel, Explosion;
-    public bool explodeBool = false;
+    public ParticleSystem explosionParticles;
 
+    public Animator barrelAnim;
+    public bool explodeBool = false;
+    public float explosionDelay;
 
     private AudioSource source;
+    public float duration;
+    public float force = 100f;
+    public float radius = 5f;
+    public float lift = 2f;
+    bool blinking;
 
     [SerializeField]
     private float range;
 
     private void Awake()
     {
-        PlayerHealth = GameObject.Find("Player");
-        healthScript = PlayerHealth.GetComponent<PlayerHealth>();
 
         Barrel.SetActive(true);
         Explosion.SetActive(false);
@@ -33,36 +38,38 @@ public class ExplosiveBarrel : MonoBehaviour
     {
         Barrel.SetActive(false);
         Explosion.SetActive(true);
+        explosionParticles.Play();
         source.Play();
-
+        StartCoroutine("DestroyMyself");
         Collider[] colliders = Physics.OverlapSphere(transform.position, range);
 
         foreach (Collider hit in colliders)
         {
-            if(hit.tag == "Moveable" && hit.name == "Player")
+            if (hit.tag == "Movable")
             {
-                healthScript.currentplayerHealth = healthScript.currentplayerHealth - barrelDamage;
+                hit.GetComponent<Rigidbody>().AddExplosionForce(force, transform.position, radius, lift);
             }
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (blinking)
         {
-            Explode();
-            explodeBool = true;
+            StartCoroutine("Blinking");
         }
+            
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
+    //private void OnCollisionEnter(Collision collision)
+    //{
 
-        if (collision.relativeVelocity.magnitude >= breakForce)
-        {
-            Explode();
-        }
-    }
+    //    if (collision.relativeVelocity.magnitude >= breakForce)
+    //    {
+    //        Explode();
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -70,5 +77,24 @@ public class ExplosiveBarrel : MonoBehaviour
         {
             Explode();
         }
+        if (other.tag == "Player")
+        {
+            barrelAnim.SetTrigger("BarrelExplode");
+            StartCoroutine("ExplosionDelay");
+        }
     }
+    IEnumerator DestroyMyself()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    }
+    IEnumerator ExplosionDelay()
+    {
+        yield return new WaitForSeconds(explosionDelay);
+        StopCoroutine("Blinking");
+        yield return new WaitForSeconds(.1f);
+        Explode();
+    }
+    
+    
 }
