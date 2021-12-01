@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Timer : MonoBehaviour
         }
         if (hasMoved) {
             currentTime = ((int) (Time.time - startTime) / 60).ToString("d2") +":"+ ((int) (Time.time - startTime) % 60).ToString("d2");
-            gameObject.GetComponent<Text>().text = currentTime;
+            gameObject.GetComponent<TMP_Text>().text = currentTime;
         }
     }
 }

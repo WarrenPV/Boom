@@ -570,7 +570,7 @@ MonoBehaviour:
   maxPlayerHealth: 10
   Recover: 0
   HealthBar: {fileID: 0}
-  recoverhealthDelay: 5
+  recoverhealthDelay: 3
 --- !u!136 &4681466673089692686
 CapsuleCollider:
   m_ObjectHideFlags: 0

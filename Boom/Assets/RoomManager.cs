@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RoomManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class RoomManager : MonoBehaviour
     public bool roomLocked;
     bool stop = false;
     public bool targetsDown;
+    public TMP_Text targetsLeftText;
+    public GameObject targetsLeftUI;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +19,14 @@ public class RoomManager : MonoBehaviour
         targetsDown = false;
         Barriers.SetActive(false);
         roomLocked = false;
+        targetsLeftText.text = "Targets: " +Targets.Length;
+        targetsLeftUI.SetActive(false);
     }
 
     public void OnPlayerEntry()
     {
+        targetsLeftUI.SetActive(true);
+        targetsLeftText.text = "Targets: " + Targets.Length;
         if (stop)
         {
             return;
@@ -50,6 +57,7 @@ public class RoomManager : MonoBehaviour
                 goto DONE;
             }
         }
+        targetsLeftText.text = "Targets: 0";
         RoomCleared();
         targetsDown = true;
         DONE:
