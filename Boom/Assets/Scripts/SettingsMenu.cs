@@ -14,6 +14,8 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
+ 
+        
         volumeSaved = PlayerPrefs.GetFloat("SFXVolume", 0);
         audioMixer.SetFloat("SFXVolume", volumeSaved);
         volumeSlide.value = volumeSaved;

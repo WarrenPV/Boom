@@ -14754,7 +14754,7 @@ GameObject:
   - component: {fileID: 5382349025939210389}
   m_Layer: 0
   m_Name: Rocket V.2
-  m_TagString: Untagged
+  m_TagString: Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14803,7 +14803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   speed: 30
-  force: 1000
+  force: 2000
   radius: 3
   lift: 5
   explosionHitbox: {fileID: 7121477193735849425}

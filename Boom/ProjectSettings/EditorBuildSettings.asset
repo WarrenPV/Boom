@@ -7,10 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 1eb1603244dd6264987d176cc86b9305
+  - enabled: 1
+    path: Assets/Scenes/Chuck's Test Scene.unity
+    guid: ef1170645b22faf4981ae8e14cf3b9c0
   - enabled: 1
     path: Assets/Scenes/Warren-Test.unity
     guid: e1bd9902f49a4e643a2d4fbe382c50cf

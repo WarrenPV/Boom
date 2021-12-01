@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Movable
   - Target
+  - Missile
+  - Barrel
   layers:
   - Default
   - TransparentFX
