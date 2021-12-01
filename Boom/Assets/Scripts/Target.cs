@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Target : MonoBehaviour {
-    bool raised;
+    public bool raised;
 
     public GameObject popup;
     public AudioSource audio;
@@ -27,6 +27,14 @@ public class Target : MonoBehaviour {
     }
 
     private void Update() {
+        if (raised)
+        {
+            RaiseTarget();
+        }
+        if (!raised)
+        {
+            LowerTarget();
+        }
         popup.transform.localPosition = Vector3.Lerp(popup.transform.localPosition, popupGoal, .3f);
     }
 }
