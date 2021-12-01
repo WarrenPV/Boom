@@ -51,7 +51,6 @@ MonoBehaviour:
   raised: 0
   popup: {fileID: 4606748121839743100}
   audio: {fileID: 4606748120450249429}
-  targetcollider: {fileID: 1844315425353253677}
 --- !u!82 &4606748120450249429
 AudioSource:
   m_ObjectHideFlags: 0

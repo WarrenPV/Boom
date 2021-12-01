@@ -26,7 +26,7 @@ public class RoomManager : MonoBehaviour
         }
         foreach (GameObject target in Targets)
         {
-            target.GetComponent<Target>().raised = true;
+            target.GetComponent<Target>().RaiseTarget();
             
         }
         stop = true;

@@ -29,7 +29,7 @@ public class Explosion : MonoBehaviour
             var Target = other.GetComponent<Target>();
             if (Target != null)
             {
-                Target.raised = false;
+                Target.LowerTarget();
                 //Debug.Log("targetdown");
             }
         }
