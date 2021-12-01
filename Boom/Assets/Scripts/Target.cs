@@ -17,11 +17,13 @@ public class Target : MonoBehaviour {
     public void RaiseTarget() {
         audio.Play();
         popupGoal = Vector3.up;
+        raised = true;
     }
 
     public void LowerTarget() {
         audio.Play();
         popupGoal = Vector3.zero;
+        raised = false;
     }
 
     private void Update() {
