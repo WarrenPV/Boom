@@ -25,12 +25,12 @@ public class Explosion : MonoBehaviour
         }
         if (other.tag == "Target")
         {
-            Debug.Log("I hit a target");
+            //Debug.Log("I hit a target");
             var Target = other.GetComponent<Target>();
             if (Target != null)
             {
                 Target.raised = false;
-                Debug.Log("targetdown");
+                //Debug.Log("targetdown");
             }
         }
     }
