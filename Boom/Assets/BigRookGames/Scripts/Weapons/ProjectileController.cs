@@ -32,8 +32,12 @@ using UnityEngine;
         public float radius = 5f;
         public float lift = 2f;
 
+        public GameObject explosionDamage;
+        bool exploded;
+
         private void Start()
         {
+        exploded = false;
             launchTime = Time.time;
         }
 
@@ -59,6 +63,8 @@ using UnityEngine;
         /// <param name="collision"></param>
         private void OnCollisionEnter(Collision collision)
         {
+        
+            exploded = true;
             // --- return if not enabled because OnCollision is still called if compoenent is disabled ---
             if (!enabled) return;
 
@@ -67,7 +73,7 @@ using UnityEngine;
             projectileMesh.enabled = false;
             targetHit = true;
             inFlightAudioSource.Stop();
-            foreach(Collider col in GetComponents<Collider>())
+            foreach (Collider col in GetComponents<Collider>())
             {
                 col.enabled = false;
             }
@@ -76,6 +82,8 @@ using UnityEngine;
 
             // --- Destroy this object after 2 seconds. Using a delay because the particle system needs to finish ---
             Destroy(gameObject, 5f);
+        
+            
         }
 
 
@@ -84,6 +92,8 @@ using UnityEngine;
         /// </summary>
         private void Explode()
         {
+        
+            exploded = true;
             ExplodeSound.Play();
 
             Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
@@ -96,7 +106,10 @@ using UnityEngine;
             }
             // --- Instantiate new explosion option. I would recommend using an object pool ---
             GameObject newExplosion = Instantiate(rocketExplosion, transform.position, rocketExplosion.transform.rotation, null);
-
+            explosionDamage.SetActive(true);
+            
+        
+            
 
         }
-    }
+}

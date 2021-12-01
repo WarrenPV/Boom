@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2771578796992078493}
   m_LocalRotation: {x: 0.014138382, y: 0.00023619756, z: -0.012265879, w: 0.99982476}
-  m_LocalPosition: {x: 32.518875, y: -1.222, z: -16.514713}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5776156438206866049}
@@ -127,6 +127,64 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &537069432721623951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5776156438206866049}
+    m_Modifications:
+    - target: {fileID: 319290934028273008, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_Name
+      value: ExplosionDamagePrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 319290934028273008, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 540979894613568358, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8347842491040040172, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+--- !u!1 &223584195326627583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 319290934028273008, guid: d5617edf67fd03a479e6b5b20ee07e6d, type: 3}
+  m_PrefabInstance: {fileID: 537069432721623951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6076885399763875842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,9 +249,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2771578796992078492}
     - target: {fileID: 988175382482574601, guid: 5269dd52fdc50ea429c6b6a65cc1161e, type: 3}
-      propertyPath: collisionLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
+      propertyPath: explosionDamage
+      value: 
+      objectReference: {fileID: 223584195326627583}
     - target: {fileID: 4092872357349286730, guid: 5269dd52fdc50ea429c6b6a65cc1161e, type: 3}
       propertyPath: m_Name
       value: Rocket Projectile (1) Variant 1
