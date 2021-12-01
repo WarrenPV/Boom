@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4756024449151063476, guid: d3235674bef7440469f76c4a972118e1, type: 3}
       propertyPath: fireRate
-      value: 2.1
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3235674bef7440469f76c4a972118e1, type: 3}
