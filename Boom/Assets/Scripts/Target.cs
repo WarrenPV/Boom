@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Target : MonoBehaviour {
     public bool raised;
-
+    bool beenHit;
     public GameObject popup;
     public AudioSource audio;
-
     Vector3 popupGoal = Vector3.zero;
 
+    private void Start()
+    {
+       
+    }
     public bool IsRaised() {
         return raised;
     }

@@ -8,11 +8,12 @@ public class RoomManager : MonoBehaviour
     public GameObject Barriers;
     public bool roomLocked;
     bool stop = false;
+    public bool targetsDown;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        targetsDown = false;
         Barriers.SetActive(false);
         roomLocked = false;
     }
@@ -29,6 +30,7 @@ public class RoomManager : MonoBehaviour
             
         }
         stop = true;
+        
     }
 
     // Update is called once per frame
@@ -39,6 +41,26 @@ public class RoomManager : MonoBehaviour
             Barriers.SetActive(true);
             OnPlayerEntry();
         }
+
+        foreach (GameObject target in Targets)
+        {
+            if (target.GetComponent<Target>().IsRaised())
+            {
+                targetsDown = false;
+                goto DONE;
+            }
+        }
+        RoomCleared();
+        targetsDown = true;
+        DONE:
+        return;
+        
+    }
+
+    void RoomCleared()
+    {
+        Barriers.SetActive(false);
+        roomLocked = false;
     }
 
 }
