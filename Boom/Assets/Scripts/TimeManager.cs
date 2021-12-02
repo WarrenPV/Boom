@@ -14,8 +14,9 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
+
         foreach(float levelTime in levelTimes) {
-            Debug.Log(levelTime);
+            string levelTimeStr = ((int) levelTime / 60).ToString("d2") +":"+ ((int) levelTime % 60).ToString("d2");
         }
     }
 
