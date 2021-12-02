@@ -19,14 +19,15 @@ public class RoomManager : MonoBehaviour
         targetsDown = false;
         Barriers.SetActive(false);
         roomLocked = false;
-        targetsLeftText.text = "Targets: " +Targets.Length;
+        targetsLeftText.text = "0/" +Targets.Length;
         targetsLeftUI.SetActive(false);
     }
 
     public void OnPlayerEntry()
     {
         targetsLeftUI.SetActive(true);
-        targetsLeftText.text = "Targets: " + Targets.Length;
+        targetsLeftText.color = Color.red;
+        targetsLeftText.text = "0/" + Targets.Length;
         if (stop)
         {
             return;
@@ -49,18 +50,22 @@ public class RoomManager : MonoBehaviour
             OnPlayerEntry();
         }
 
+        int targetsLeft = 0;
+
         foreach (GameObject target in Targets)
         {
             if (target.GetComponent<Target>().IsRaised())
             {
+                targetsLeft++;
                 targetsDown = false;
-                goto DONE;
             }
         }
-        targetsLeftText.text = "Targets: 0";
-        RoomCleared();
-        targetsDown = true;
-        DONE:
+        targetsLeftText.text = (Targets.Length-targetsLeft) + "/" + Targets.Length;
+        if (targetsLeft == 0) {
+            RoomCleared();
+            targetsLeftText.color = Color.green;
+            targetsDown = true;
+        }
         return;
         
     }

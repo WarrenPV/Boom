@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        if(Vector3.Distance(player.transform.position, spawnPos) > 0.1f || Input.GetKeyDown(KeyCode.Mouse0)) {
+        if(Vector3.Distance(player.transform.position, spawnPos) > 0.3f || Input.GetKeyDown(KeyCode.Mouse0)) {
             if (!hasMoved) {
                 startTime = Time.time;
             }
@@ -29,5 +29,9 @@ public class Timer : MonoBehaviour
             currentTime = ((int) (Time.time - startTime) / 60).ToString("d2") +":"+ ((int) (Time.time - startTime) % 60).ToString("d2");
             gameObject.GetComponent<TMP_Text>().text = currentTime;
         }
+    }
+
+    public float getCurrentTime() {
+        return Time.time - startTime;
     }
 }

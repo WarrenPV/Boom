@@ -7,6 +7,7 @@ public class NextLevel : MonoBehaviour
     public PauseMenu menu;
     private bool canFinish = false;
     public bool tutorial = false;
+    public GameObject timer;
 
     private void FixedUpdate()
     {
@@ -19,6 +20,7 @@ public class NextLevel : MonoBehaviour
         {
             if (other.tag == "Player" && canFinish)
             {
+                GameObject.Find("TimeManager").GetComponent<TimeManager>().appendTime(timer.GetComponent<Timer>().getCurrentTime());
                 menu.NextScene();
             }
         }
@@ -26,6 +28,7 @@ public class NextLevel : MonoBehaviour
         {
             if (other.tag == "Player")
             {
+                GameObject.Find("TimeManager").GetComponent<TimeManager>().appendTime(timer.GetComponent<Timer>().getCurrentTime());
                 menu.NextScene();
             }
         }
