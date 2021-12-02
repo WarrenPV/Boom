@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -20,7 +19,7 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        if(Vector3.Distance(player.transform.position, spawnPos) > 0.1f) {
+        if(Vector3.Distance(player.transform.position, spawnPos) > 0.1f || Input.GetKeyDown(KeyCode.Mouse0)) {
             if (!hasMoved) {
                 startTime = Time.time;
             }

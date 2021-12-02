@@ -63,7 +63,22 @@ using UnityEngine;
         /// <param name="collision"></param>
         private void OnCollisionEnter(Collision collision)
         {
-        
+            registerCollision(collision);
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            registerCollision(collision);
+        }
+
+        private void OnCollisionStay(Collision collision)
+        {
+            registerCollision(collision);
+        }
+
+        private void registerCollision(Collision collision) 
+        {
+            if (collision.gameObject.layer == 3) return;
             exploded = true;
             // --- return if not enabled because OnCollision is still called if compoenent is disabled ---
             if (!enabled) return;
@@ -82,10 +97,7 @@ using UnityEngine;
 
             // --- Destroy this object after 2 seconds. Using a delay because the particle system needs to finish ---
             Destroy(gameObject, 5f);
-        
-            
         }
-
 
         /// <summary>
         /// Instantiates an explode object.
