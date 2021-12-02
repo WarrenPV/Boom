@@ -13,7 +13,7 @@ public class RoomManager : MonoBehaviour
     public TMP_Text targetsLeftText;
     public GameObject targetsLeftUI;
 
-    // Start is called before the first frame update
+    // Initialize the tutorial room
     void Start()
     {
         targetsDown = false;
@@ -23,6 +23,7 @@ public class RoomManager : MonoBehaviour
         targetsLeftUI.SetActive(false);
     }
 
+    // When a player enters the room, raise targets and show count
     public void OnPlayerEntry()
     {
         targetsLeftUI.SetActive(true);
@@ -41,7 +42,7 @@ public class RoomManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Update the room based on targets hit
     void Update()
     {
         if (roomLocked)
@@ -77,6 +78,7 @@ public class RoomManager : MonoBehaviour
         
     }
 
+    // Allow player to exit room to finish
     void RoomCleared()
     {
         Barriers.SetActive(false);

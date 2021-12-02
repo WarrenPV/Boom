@@ -14,6 +14,7 @@ public class NextLevel : MonoBehaviour
         this.transform.Rotate(0,1f,0);
     }
 
+    // Change the Scene to the next scene given some finish characteristics
     private void OnTriggerEnter(Collider other)
     {
         if (!tutorial)
@@ -35,6 +36,7 @@ public class NextLevel : MonoBehaviour
         
     }
 
+    // Set the player able to finish
     public void setCanFinish(bool finish) 
     {
         canFinish = finish;

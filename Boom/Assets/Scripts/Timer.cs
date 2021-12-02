@@ -12,11 +12,13 @@ public class Timer : MonoBehaviour
     public GameObject spawnPoint;
     private Vector3 spawnPos;
 
-    // Update is called once per frame
+    // Set the initial positions of the spawn
     void Start() {
         spawnPos = spawnPoint.transform.position;
         spawnPos.y += 1f;
     }
+
+    // If player has left the spawn, initialize timer
     void Update()
     {
         if(Vector3.Distance(player.transform.position, spawnPos) > 0.3f || Input.GetKeyDown(KeyCode.Mouse0)) {

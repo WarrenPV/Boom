@@ -13,6 +13,7 @@ public class GroundCheck : MonoBehaviour
         distanceGround = GetComponent<Collider>().bounds.extents.y;
     }
 
+    // Check underneath player for ground
     private void FixedUpdate()
     {
         if (!Physics.Raycast(transform.position, -Vector3.up, distanceGround + .1f))

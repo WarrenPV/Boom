@@ -11,7 +11,7 @@ public class TargetManager : MonoBehaviour
     public GameObject nextLevel;
     private int targetsLeft;
     
-    // Start is called before the first frame update
+    // On start, add all the children targets to a list of targets
     void Start()
     {
         listOfTargets = new List<GameObject>();
@@ -28,7 +28,7 @@ public class TargetManager : MonoBehaviour
         targetsLeft = listOfTargets.Count;
     }
 
-    // Update is called once per frame
+    // If the player has no more targets, can finish, also update the target UI
     void Update()
     {
         if (targetsLeft <= 0) {
@@ -43,11 +43,13 @@ public class TargetManager : MonoBehaviour
         }
         updateTargetUI();
     }
-
+    
+    // Update the UI displaying targets left
     void updateTargetUI() {
         targetUI.GetComponent<TMP_Text>().text = (listOfTargets.Count-targetsLeft) + "/" + listOfTargets.Count;
     }
 
+    // Set the player able to finish
     void setFinishable() {
         nextLevel.GetComponent<NextLevel>().setCanFinish(true);
     }

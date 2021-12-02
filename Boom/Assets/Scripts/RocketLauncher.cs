@@ -17,7 +17,7 @@ public class RocketLauncher : MonoBehaviour
     {
         audiosource = GetComponent<AudioSource>();
     }
-    // Update is called once per frame
+    // If firing and can shoot, launch rocket, else check if can shoot again
     void Update()
     {
         if (!PauseMenu.IsGamePaused)

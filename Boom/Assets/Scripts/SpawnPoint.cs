@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     public GameObject player;
+
+    // On level start, move player to spawn point
     void Start()
     {
         Vector3 spawnpt = transform.position;

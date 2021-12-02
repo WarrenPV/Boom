@@ -6,18 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     private List<float> levelTimes = new List<float>();
     string totalStr;
     bool setString = false;
 
     void Awake() 
     {
+        // Make it persist through levels
         DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
     {
+        // When arriving at the Win scene, send the times to a text object
         if (SceneManager.GetActiveScene().name == "Win" && !setString) {
             setString = true;
             int level = 0;
@@ -42,6 +43,7 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    // Add times on each level finish
     public void appendTime(float time) {
         levelTimes.Add(time);
     }

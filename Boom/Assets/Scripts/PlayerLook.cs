@@ -16,7 +16,7 @@ public class PlayerLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;  
     }
 
-    // Update is called once per frame
+    // Update the camera angles based on mouse movement
     void Update()
     {   
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
