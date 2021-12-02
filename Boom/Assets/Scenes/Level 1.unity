@@ -3330,6 +3330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: {fileID: 1252624900}
   targetUI: {fileID: 1728293556}
+  nextLevel: {fileID: 1997672180}
 --- !u!1001 &813021151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8145,6 +8146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b62a88683020bad4f88cd9c883281901, type: 3}
+--- !u!1 &1997672180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7882227750938377798, guid: 3d28758034cc37245be9919ffda49f9f, type: 3}
+  m_PrefabInstance: {fileID: 1518347097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1999699996
 PrefabInstance:
   m_ObjectHideFlags: 0
