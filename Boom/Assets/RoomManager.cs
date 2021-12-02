@@ -60,13 +60,20 @@ public class RoomManager : MonoBehaviour
                 targetsDown = false;
             }
         }
-        targetsLeftText.text = (Targets.Length-targetsLeft) + "/" + Targets.Length;
-        if (targetsLeft == 0) {
-            RoomCleared();
-            targetsLeftText.color = Color.green;
-            targetsDown = true;
+
+        if (!targetsDown)
+        {
+            targetsLeftText.text = (Targets.Length - targetsLeft) + "/" + Targets.Length;
+
+
+            if (targetsLeft == 0)
+            {
+                RoomCleared();
+                targetsLeftText.color = Color.green;
+                targetsDown = true;
+            }
+            return;
         }
-        return;
         
     }
 
