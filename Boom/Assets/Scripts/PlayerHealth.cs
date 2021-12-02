@@ -11,11 +11,14 @@ public class PlayerHealth : MonoBehaviour
     public bool Recover;
     public Slider HealthBar;
     public int recoverhealthDelay;
+    private AudioSource audiosource;
+    public AudioClip healthup;
 
     private void Start()
     {
         HealthBar.maxValue = maxPlayerHealth;
         currentplayerHealth = maxPlayerHealth;
+        audiosource = GetComponent<AudioSource>();
     }
     public void Update()
     {

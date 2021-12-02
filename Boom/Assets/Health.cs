@@ -7,7 +7,13 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     private float cubeHealth;
+    AudioSource audiosource;
+    public AudioClip hpUp;
 
+    private void Start()
+    {
+        audiosource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -16,9 +22,9 @@ public class Health : MonoBehaviour
             if (health != null)
             {
                 health.currentplayerHealth = health.currentplayerHealth + cubeHealth;
+                audiosource.PlayOneShot(hpUp,.45f);
             }
-
-            Destroy(gameObject);
+            
         }
     }
 }
