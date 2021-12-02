@@ -6,6 +6,7 @@ public class NextLevel : MonoBehaviour
 {
     public PauseMenu menu;
     private bool canFinish = false;
+    public bool tutorial = false;
 
     private void FixedUpdate()
     {
@@ -14,10 +15,21 @@ public class NextLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && canFinish)
+        if (!tutorial)
         {
-            menu.NextScene();
+            if (other.tag == "Player" && canFinish)
+            {
+                menu.NextScene();
+            }
         }
+        else
+        {
+            if (other.tag == "Player")
+            {
+                menu.NextScene();
+            }
+        }
+        
     }
 
     public void setCanFinish(bool finish) 

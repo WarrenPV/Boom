@@ -5766,6 +5766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 115217342}
+  tutorial: 1
 --- !u!65 &7882227751640481929
 BoxCollider:
   m_ObjectHideFlags: 0
