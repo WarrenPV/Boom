@@ -9,11 +9,16 @@ public class Health : MonoBehaviour
     private float cubeHealth;
     AudioSource audiosource;
     public AudioClip hpUp;
+    public Collider collider;
+    public MeshRenderer mesh;
 
     private void Start()
     {
+        mesh = GetComponent<MeshRenderer>();
+        collider = GetComponent<Collider>();
         audiosource = GetComponent<AudioSource>();
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -21,11 +26,21 @@ public class Health : MonoBehaviour
             var health = other.GetComponent<PlayerHealth>();
             if (health != null)
             {
+                collider.enabled = false;
+                mesh.enabled = false;
                 health.currentplayerHealth = health.currentplayerHealth + cubeHealth;
-                audiosource.PlayOneShot(hpUp,.45f);
+                
+                StartCoroutine("DeleteMe");
             }
             
         }
+    }
+
+    IEnumerator DeleteMe()
+    {
+        audiosource.PlayOneShot(hpUp, .45f);
+        yield return new WaitForSeconds(audiosource.clip.length);
+        Destroy(gameObject);
     }
 }
 

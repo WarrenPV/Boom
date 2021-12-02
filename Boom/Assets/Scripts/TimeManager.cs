@@ -12,10 +12,10 @@ public class TimeManager : MonoBehaviour
     void Awake() 
     {
         DontDestroyOnLoad(this.gameObject);
-        // levelTimes.Add(30.64f);
-        // levelTimes.Add(100.23f);
-        // levelTimes.Add(15.41f);
-        // levelTimes.Add(70.49f);
+        //levelTimes.Add(30.64f);
+        //levelTimes.Add(100.23f);
+        //levelTimes.Add(15.41f);
+        //levelTimes.Add(70.49f);
     }
 
     void Update()
@@ -27,9 +27,9 @@ public class TimeManager : MonoBehaviour
             float sumTime = 0;
             foreach(float levelTime in levelTimes) {
                 if(level == 0) {
-                    levelStr = "Tutorial: ";
+                    levelStr = "Tutorial- ";
                 } else {
-                    levelStr = "Level " + level + ": ";
+                    levelStr = "Level " + level + "- ";
                 }
                 sumTime += levelTime;
                 string levelTimeStr = ((int) levelTime / 60).ToString("d2") +":"+ ((int) levelTime % 60).ToString("d2");

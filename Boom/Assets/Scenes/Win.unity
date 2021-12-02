@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,10 +461,13 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -8557081733162400317, guid: f76b65602ae135e45bfafdce6d627fc9, type: 2}
     value: {fileID: 66531368}
+  - key: {fileID: -3097232491289721894, guid: f76b65602ae135e45bfafdce6d627fc9, type: 2}
+    value: {fileID: 635745751}
   m_ExposedReferences:
     m_References:
     - ac07b24bc8da4234a89ad7f552fc009d: {fileID: 2050368481}
     - 22470d5c523e49c45a53eff94cbf463c: {fileID: 66531364}
+    - 1847a13da07c1e540b52fda8642c11aa: {fileID: 635745746}
     - 797c968a210160943bc55a7f39f943c6: {fileID: 29703402}
 --- !u!114 &580488215
 MonoBehaviour:
@@ -562,6 +565,8 @@ GameObject:
   - component: {fileID: 635745747}
   - component: {fileID: 635745749}
   - component: {fileID: 635745748}
+  - component: {fileID: 635745750}
+  - component: {fileID: 635745751}
   m_Layer: 5
   m_Name: finaltimes
   m_TagString: Untagged
@@ -585,7 +590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 346}
+  m_AnchoredPosition: {x: 0, y: 176}
   m_SizeDelta: {x: 545.4097, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635745748
@@ -608,7 +613,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: finaltimes
+  m_text: 'finaltimes
+
+    test
+
+    test
+
+    test
+
+    test'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c0b9bd940f2be34996082b963ce60f3, type: 2}
   m_sharedMaterial: {fileID: 3416576402919636846, guid: 9c0b9bd940f2be34996082b963ce60f3, type: 2}
@@ -671,7 +684,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 300, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -685,6 +698,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635745746}
   m_CullTransparentMesh: 1
+--- !u!114 &635745750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635745746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a63a83fe74954964bbed311876d078c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &635745751
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635745746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &720700805
 GameObject:
   m_ObjectHideFlags: 0
